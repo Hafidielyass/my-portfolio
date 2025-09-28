@@ -38,7 +38,6 @@ const skillsArray = [
   },
 ];
 
-
 const SkillsSection = () => {
   return (
     <section className="relative py-24 px-12 bg-background text-foreground font-AlbertSans">
@@ -58,7 +57,7 @@ const SkillsSection = () => {
           <hr className="border-secondary border-2 h-7 w-0 absolute top-2 right-0" />
         </h2>
       </div>
-      <div className="md:grid md:grid-cols-3 gap-6 items-start py-4 xl:gap-16 sm:grid-cols-3 sm:gap-16 ">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8 xl:gap-16 items-start py-4 mt-6">
         {skillsArray.map((skill) => (
           <SkillsCard
             key={skill.id}

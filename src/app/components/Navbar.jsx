@@ -24,7 +24,7 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-10 right-0 z-10 bg-transparent bg-opacity-50   backdrop-blur-md ">
+  <nav className="fixed top-0 left-0 right-0 z-10 bg-transparent bg-opacity-50 backdrop-blur-md">
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-2 ">
         <Link
           href=""
@@ -75,17 +75,26 @@ const Navbar = () => {
           </ul>
         </div>
 
+        {/* Desktop Hire me button (hidden on mobile; mobile version lives inside MenuOverlay) */}
         <button
-          className="relative group border border-primary text-foreground w-20 h-10 md:w-32 md:h-10 flex items-center justify-center overflow-hidden"
+          className="hidden md:flex relative group border border-primary text-foreground w-20 h-10 md:w-32 md:h-10 items-center justify-center overflow-hidden"
           type="button"
+          onClick={() => {
+            // Scroll to contact section
+            const el = document.querySelector('#contact')
+            if (el) el.scrollIntoView({ behavior: 'smooth' })
+          }}
         >
           <span className="absolute bottom-0 left-0 h-1 w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-          <span className="relative font-medium tracking-wide text-sm md:text-base">
-            Hire me
-          </span>
+          <span className="relative font-medium tracking-wide text-sm md:text-base">Hire me</span>
         </button>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+      {navbarOpen ? (
+        <MenuOverlay
+          links={navLinks}
+          onClose={() => setNavbarOpen(false)}
+        />
+      ) : null}
     </nav>
   );
 };
