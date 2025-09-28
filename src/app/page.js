@@ -7,7 +7,7 @@ import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import ProjectsSection from "./components/ProjectsSection";
 import SkillsSection from "./components/SkillsSection";
-
+import "./globals.css";
 export default function Home() {
   return (
     <main className="font-sans flex h-screen flex-col  relative bg-black">

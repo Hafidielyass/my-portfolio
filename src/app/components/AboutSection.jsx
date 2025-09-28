@@ -44,9 +44,9 @@ const AboutSection = () => {
 
         <div className="relative">
           <p className="text-foreground text-base mt-8 lg:text-2xl max-w-xl leading-relaxed">
-            I&apos;m Elyass Hafidi, a software engineer with a passion for
-            crafting elegant and efficient solutions. With a strong foundation
-            in both front-end and back-end development, I specialize in creating
+            I&apos;m Elyass Hafidi, a software engineer with a passion for crafting
+            elegant and efficient solutions. With a strong foundation in both
+            front-end and back-end development, I specialize in creating
           </p>
           <div className="flex flex-row items-center space-x-2"></div>
           {/* Removed centered background text from here */}
