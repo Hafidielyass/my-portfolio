@@ -27,7 +27,9 @@ const certificateData = [
 const CertificationSection = () => {
   return (
     <>
-      <h2 className="text-primary-950 text-5xl font-Gaegu font-extrabold mb-1">Certficates</h2>
+      <h2 className="text-foreground text-5xl font-Gaegu font-extrabold mb-1">
+        Certficates
+      </h2>
       <hr className="border-second-500  border-2 w-24 mb-8" />
 
       <div className="grid md:grid-cols-3 gap-8 md:gap-12">
