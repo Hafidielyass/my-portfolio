@@ -7,35 +7,33 @@ import {
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 const EmailSection = () => {
   const [status, setStatus] = useState({ sending: false, ok: null, error: "" });
 
-  async function onSubmit(e) {
+  const onSubmit = useCallback(async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const email = form.email.value;
-    const subject = form.subject.value;
-    const message = form.message.value;
+    const email = form.email.value.trim();
+    const subject = form.subject.value.trim();
+    const message = form.message.value.trim();
+    if (!email || !subject || !message) return;
+    setStatus({ sending: true, ok: null, error: "" });
     try {
-      setStatus({ sending: true, ok: null, error: "" });
       const res = await fetch("/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, subject, message }),
       });
-      if (!res.ok) throw new Error("Request failed");
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) throw new Error(data.error || "Failed");
       setStatus({ sending: false, ok: true, error: "" });
       form.reset();
     } catch (err) {
-      setStatus({
-        sending: false,
-        ok: false,
-        error: "Failed to send. Try again.",
-      });
+      setStatus({ sending: false, ok: false, error: "Failed to send. Try again." });
     }
-  }
+  }, []);
 
   return (
     <section
@@ -68,7 +66,13 @@ const EmailSection = () => {
         </span>
       </div>
       <div>
-        <form onSubmit={onSubmit} className="flex flex-col bg-muted/60 p-7">
+  <form onSubmit={onSubmit} className="flex flex-col bg-muted/60 p-7 relative" noValidate>
+          {/* Status overlay when sending */}
+          {status.sending && (
+            <div className="absolute inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center text-sm text-muted-foreground">
+              Sending...
+            </div>
+          )}
           <div className="mb-6">
             <label
               htmlFor="email"
@@ -84,6 +88,7 @@ const EmailSection = () => {
               name="email"
               required
               placeholder="example@mail.com"
+              autoComplete="email"
             />
           </div>
           <div className="mb-6">
@@ -100,6 +105,7 @@ const EmailSection = () => {
               name="subject"
               required
               placeholder="just saying hi "
+              maxLength={140}
             />
           </div>
           <div className="mb-6">
@@ -117,23 +123,29 @@ const EmailSection = () => {
               rows={7}
               required
               placeholder="Let's talk together..."
+              maxLength={3000}
             />
           </div>
-          <button
-            type="submit"
-            disabled={status.sending}
-            className="px-6 py-3 w-fit self-end mt-3 bg-muted text-pretty text-primary hover:bg-second-600 active:bg-second-700 flex items-center justify-center disabled:opacity-60"
-          >
-            {status.sending
-              ? "Sending..."
-              : status.ok
-              ? "Sent!"
-              : "Send Message"}
-            <ArrowRightIcon className="w-5 h-5 ml-2" />
-          </button>
-          {status.ok === false && (
-            <p className="mt-2 text-sm text-destructive">{status.error}</p>
-          )}
+          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-end mt-2">
+            <button
+              type="submit"
+              disabled={status.sending}
+              className="px-6 py-3 bg-muted text-pretty text-primary hover:bg-accent hover:text-accent-foreground active:opacity-90 flex items-center justify-center disabled:opacity-50 transition-colors"
+            >
+              {status.sending
+                ? "Sending..."
+                : status.ok
+                ? 'Sent!'
+                : "Send Message"}
+              <ArrowRightIcon className="w-5 h-5 ml-2" />
+            </button>
+            {status.ok === true && (
+              <span className="text-xs text-accent-foreground bg-accent px-2 py-1 rounded-sm">Thanks for your message!</span>
+            )}
+            {status.ok === false && (
+              <p className="text-sm text-destructive">{status.error}</p>
+            )}
+          </div>
         </form>
       </div>
     </section>

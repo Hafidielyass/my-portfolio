@@ -1,16 +1,11 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === 'production'
-// If deploying as a project site (https://<user>.github.io/my-portfolio) keep repoName below.
-const repoName = "my-portfolio";
-
+// Dynamic configuration (no static export) so API routes like /api/send work.
+// Deploy to Vercel (recommended) or any Node host. If you still need GitHub Pages
+// for a project subpath, you cannot run the email API there.
 const nextConfig = {
-	// Enable static export for GitHub Pages (no Node server, no API routes served here)
-	output: 'export',
-	images: { unoptimized: true },
-	// Use basePath + assetPrefix only in production so local dev remains unchanged
-	basePath: isProd ? `/${repoName}` : '',
-	assetPrefix: isProd ? `/${repoName}/` : '',
-	trailingSlash: true,
-}
+  images: { unoptimized: true },
+  // If you later map a custom domain or root path, keep basePath empty.
+  // basePath: '',
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
