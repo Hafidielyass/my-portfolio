@@ -15,7 +15,7 @@ const projectData = [
     title: "OenergyMS",
     description:
       "A platform to search for movies and tv shows, and get information about them.",
-    imgUrl: "/images/oenergy-screen.png",
+    imgUrl: "images/oenergy-screen.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",
@@ -25,7 +25,7 @@ const projectData = [
     title: "Vigil",
     description:
       "A platform for the yoga community to share their knowledge and experience.",
-    imgUrl: "/images/vigil-screen.png",
+    imgUrl: "images/vigil-screen.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",
@@ -35,7 +35,7 @@ const projectData = [
     title: "Doc-area",
     description:
       "A platform for the yoga community to share their knowledge and experience.",
-    imgUrl: "/images/Docarea-screen.png",
+    imgUrl: "images/Docarea-screen.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",
@@ -45,7 +45,7 @@ const projectData = [
     title: "Capsun",
     description:
       "A platform for the yoga community to share their knowledge and experience.",
-    imgUrl: "/images/capsun-screen.png",
+    imgUrl: "images/capsun-screen.png",
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",
@@ -55,7 +55,7 @@ const projectData = [
     title: "Yoga Mobile Project",
     description:
       "A platform for the yoga community to share their knowledge and experience.",
-    imgUrl: "/images/yoga-project-screen.png",
+    imgUrl: "images/yoga-project-screen.png",
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",
@@ -65,7 +65,7 @@ const projectData = [
     title: "PlanteCare+",
     description:
       "A mobile app to track workouts, set fitness goals, and monitor progress over time.",
-    imgUrl: "/images/plantcare-screen.png",
+    imgUrl: "images/plantcare-screen.png",
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",
@@ -74,7 +74,7 @@ const projectData = [
     title: "Agri R",
     description:
       "A mobile app to track workouts, set fitness goals, and monitor progress over time.",
-    imgUrl: "/images/agrir-screen.png",
+    imgUrl: "images/agrir-screen.png",
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",

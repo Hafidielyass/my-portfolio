@@ -33,7 +33,7 @@ const HeroSection = () => {
             className="relative w-full flex justify-center"
           >
             <Image
-              src="/images/hero-section.png"
+              src="images/hero-section.png"
               alt="hero image"
               className="w-full h-auto max-w-[260px] xs:max-w-sm sm:max-w-md lg:max-w-lg object-contain"
               width={550}

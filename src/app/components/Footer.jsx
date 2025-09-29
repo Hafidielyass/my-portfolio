@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex items-center justify-center gap-3 text-foreground font-semibold text-lg">
           <span>Made by</span>
           <Image
-            src="/images/my-logo.svg"
+            src="images/my-logo.svg"
             alt="logo image"
             width={40}
             height={40}
