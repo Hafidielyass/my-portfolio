@@ -69,7 +69,8 @@ const projectData = [
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",
-  }, {
+  },
+  {
     id: 7,
     title: "Agri R",
     description:
@@ -78,7 +79,7 @@ const projectData = [
     tag: ["All", "Mobile"],
     gitUrl: "https://github.com",
     previewUrl: "https://github.com",
-  }
+  },
 ];
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
@@ -108,11 +109,7 @@ const ProjectsSection = () => {
           <hr className="border-secondary border-2 h-7 w-0 absolute top-2 right-0" />
         </h2>
       </div>
-      <p className="text-primary-900 max-w-lg mb-4">
-        Here are some of the projects I have worked on recently. I am always
-        looking for new challenges and opportunities to learn and grow as a
-        developer.
-      </p>
+     
 
       {/* <div className="text-primary-900  flex flex-row justify-center gap-2 py-6">
         <ProjectTag

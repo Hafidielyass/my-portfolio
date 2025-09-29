@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section className="relative w-full">
-      <div className="mx-auto max-w-7xl px-6 sm:px-10 pt-10 grid grid-cols-1 sm:grid-cols-12 gap-8">
+      <div className="mx-auto max-w-7xl px-6 sm:px-10 pt-20 sm:grid sm:grid-cols-1 sm:grid-cols-12 gap-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -19,7 +19,7 @@ const HeroSection = () => {
             Hi! I&apos;m <span className="bg-accent p-1"> Elyass</span> software
             engineer.
           </h1>
-          <h1 className="text-muted-foreground mt-6 text-xl sm:text-2xl lg:text-xl font-mono font-light max-w-xl mx-auto sm:mx-0">
+          <h1 className="text-muted-foreground mt-6 text-xl sm:text-lg lg:text-xl font-mono font-light max-w-xl mx-auto sm:mx-0">
             a passionate about building excellent software that improves
             everyday life.
             <br />
@@ -30,7 +30,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative w-full flex justify-center"
+            className="relative w-full flex justify-center items-center"
           >
             <Image
               src="images/hero-section.png"
